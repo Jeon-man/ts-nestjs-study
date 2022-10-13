@@ -8,8 +8,8 @@ import { DBService } from './db.service';
 export class TodoService {
   constructor(private readonly db: DBService) {}
 
-  async create(createTodoDto: CreateTodoDto) {
-    return this.db.Todo.create(createTodoDto);
+  async create(createTodoDto: CreateTodoDto, userId: number) {
+    return this.db.Todo.create({ ...createTodoDto, successState: false, userId: userId });
   }
 
   async findAll() {

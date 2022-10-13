@@ -6,6 +6,7 @@ import {
   Param,
   ParseIntPipe,
   Patch,
+  Post,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
@@ -14,7 +15,7 @@ import { TodoService } from '@service';
 
 import { ModelResponseInterceptor } from '@interceptor';
 
-import { UpdateTodoDto } from '@dto/todo';
+import { CreateTodoDto, UpdateTodoDto } from '@dto/todo';
 
 @ApiTags('todo')
 @UseInterceptors(ModelResponseInterceptor)
@@ -35,6 +36,11 @@ export class TodoController {
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
     return this.todoService.findById(id);
+  }
+
+  @Post(':id/add')
+  async addTodo(@Body() creationTodo: CreateTodoDto, @Param('id', ParseIntPipe) id: number) {
+    return this.todoService.create(creationTodo, id);
   }
 
   @Patch(':id')
