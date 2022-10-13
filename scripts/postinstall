@@ -1,0 +1,26 @@
+# initialize husky
+if [ -z "`stat .husky/_ 2> /dev/null`" ]; then
+  echo "Initializing husky..."
+  yarn husky install
+fi
+
+# duplicate env file
+if [ -z "`stat .env 2> /dev/null`" ]; then
+  echo "Duplicating .env.example to .env..."
+  cp .env.example .env
+fi
+
+if [ -z "`stat .env.production 2> /dev/null`" ]; then
+  echo "Duplicating .env.example to .env.production..."
+  cp .env.example .env.production
+fi
+
+if [ -z "`stat .env.development 2> /dev/null`" ]; then
+  echo "Duplicating .env.example to .env.development..."
+  cp .env.example .env.development
+fi
+
+if [ -z "`stat .env.test 2> /dev/null`" ]; then
+  echo "Duplicating .env.example to .env.test..."
+  cp .env.example .env.test
+fi

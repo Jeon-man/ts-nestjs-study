@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@module/*": ["./src/modules/*.module"],
+      "@module": ["./src/modules"],
+      "@controller/*": ["./src/controllers/*.controller"],
+      "@controller": ["./src/controllers"],
+      "@service/*": ["./src/services/*.service"],
+      "@service": ["./src/services"],
+      "@provider/*": ["./src/providers/*.provider"],
+      "@provider": ["./src/providers"],
+      "@scheduler/*": ["./src/schedulers/*.scheduler"],
+      "@scheduler": ["./src/schedulers"],
+
+      "@middleware/*": ["./src/middlewares/*.middleware"],
+      "@middleware": ["./src/middlewares"],
+      "@guard/*": ["./src/guards/*.guard"],
+      "@guard": ["./src/guards"],
+      "@pipe/*": ["./src/pipes/*.pipe"],
+      "@pipe": ["./src/pipes"],
+      "@interceptor/*": ["./src/interceptors/*.interceptor"],
+      "@interceptor": ["./src/interceptors"],
+      "@decorator/*": ["./src/decorators/*.decorator"],
+      "@decorator": ["./src/decorators"],
+
+      "@interface/*": ["./src/interfaces/*.(interface|enum|types)"],
+      "@interface": ["./src/interfaces"],
+      "@model/*": ["./src/models/*.model"],
+      "@model": ["./src/models"],
+      "@dto/*": ["./src/dtos/*.dto"],
+      "@dto": ["./src/dtos"],
+      "@exception/*": ["./src/exceptions/*.exception"],
+      "@exception": ["./src/exceptions"],
+
+      "@util/*": ["./src/utils/*"],
+
+      "@jest/utils": [".jest/utils.ts"]
+    }
+  }
+}
