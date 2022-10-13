@@ -34,8 +34,4 @@ export class UserService {
   async remove(id: number) {
     return this.db.User.destroy({ where: { id } });
   }
-
-  async findOneTodos(id: number) {
-    const user = await this.findByPk(id);
-  }
 }

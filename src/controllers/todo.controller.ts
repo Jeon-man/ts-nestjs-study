@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { TodoService } from '@service/todo';
+import { TodoService } from '@service';
 
 import { ModelResponseInterceptor } from '@interceptor';
 
@@ -25,6 +25,11 @@ export class TodoController {
   @Get()
   async findAll() {
     return this.todoService.findAll();
+  }
+
+  @Get('/user/:id')
+  async findUserTodo(@Param('id', ParseIntPipe) id: number) {
+    return this.todoService.findUserTodo(id);
   }
 
   @Get(':id')

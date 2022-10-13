@@ -27,4 +27,8 @@ export class TodoService {
   async delete(todoId: number) {
     return this.db.Todo.destroy({ where: { id: todoId } });
   }
+
+  async findUserTodo(userId: number) {
+    return this.db.Todo.findAll({ where: { userId: userId } });
+  }
 }
