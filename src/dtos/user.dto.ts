@@ -1,7 +1,7 @@
 import { OmitType, PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsNumber, IsString } from 'class-validator';
 import { CreationAttributes } from 'sequelize/types';
 
 import M from '@model';
@@ -19,6 +19,10 @@ export class CreateUserDto implements CreationAttributes<M.User> {
   @ApiProperty()
   @IsString()
   password: string;
+
+  @ApiProperty()
+  @IsNumber()
+  groupId?: number;
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}
