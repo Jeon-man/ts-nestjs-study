@@ -20,8 +20,8 @@ export class Todo extends Model<InferAttributes<Todo>, InferCreationAttributes<T
 
   @ApiProperty()
   @Expose()
-  @Column({ comment: '성공 상태' })
-  successState: boolean = false;
+  @Column({ comment: '성공 상태', defaultValue: false })
+  successState: boolean;
 
   @ApiPropertyOptional({ type: () => User })
   @BelongsTo(() => User, { onDelete: 'CASCADE' })
