@@ -20,4 +20,13 @@ describe.skip('UserService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should getAll', () => {
+    expect(service.findAll).toEqual([]);
+  });
+
+  it('should get', () => {
+    const one = service.create({ name: 'wdsa', email: 'asd@gmail.com', password: '123142' });
+    expect(one).toBeDefined();
+  });
 });
