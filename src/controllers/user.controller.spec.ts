@@ -6,6 +6,8 @@ import { UserController } from '@controller/user';
 
 import { AuthGuard } from '@guard';
 
+import M from '@model';
+
 describe('UserController', () => {
   let controller: UserController;
 
@@ -23,5 +25,10 @@ describe('UserController', () => {
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  it('should finded', async () => {
+    const users: Array<M.User> = await controller.findAll();
+    expect(users).toBeCalled();
   });
 });
