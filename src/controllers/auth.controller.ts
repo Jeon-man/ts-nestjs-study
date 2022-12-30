@@ -1,4 +1,4 @@
-import { Body, Controller, NotImplementedException, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { AuthService, TokenService } from '@service';
@@ -58,16 +58,5 @@ export class AuthController {
   @D.Transactional
   async refresh(@Body() { refreshToken }: RefreshTokenDto) {
     return this.tokenService.refresh(refreshToken);
-  }
-
-  @ApiOperation({
-    summary: '회원 탈퇴',
-    description: '유저를 삭제합니다. (구현 예정)',
-    deprecated: true,
-  })
-  @Post('withdrawal')
-  @D.Transactional
-  async withdrawal() {
-    throw new NotImplementedException();
   }
 }

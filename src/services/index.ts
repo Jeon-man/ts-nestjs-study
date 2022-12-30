@@ -2,7 +2,5 @@
 export * from './auth.service';
 export * from './config.service';
 export * from './db.service';
-export * from './group.service';
-export * from './todo.service';
 export * from './token.service';
 export * from './user.service';

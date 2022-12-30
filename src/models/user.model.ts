@@ -1,10 +1,8 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 import { Expose } from 'class-transformer';
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
-
-import { Group } from './group.model';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table({
   tableName: 'User',
@@ -44,13 +42,4 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
     defaultValue: false,
   })
   isAdmin: CreationOptional<boolean>;
-
-  @ApiPropertyOptional({ type: () => Group })
-  @BelongsTo(() => Group, { onDelete: 'CASCADE' })
-  group?: Group;
-
-  @ApiProperty()
-  @Column({ allowNull: false })
-  @ForeignKey(() => Group)
-  groupId?: number;
 }
